@@ -24,7 +24,7 @@ steps:
 - task: TerraformCLI@0
   inputs:
     command: 'init'
-    backendType: 'azurerm'
+    
     allowTelemetryCollection: true
 
 - task: TerraformCLI@0
