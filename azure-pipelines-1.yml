@@ -13,9 +13,10 @@ steps:
 - checkout: self
 
 - script:  ls
+  
   displayName: 'Run a one-line script'
 
-
+- script: cd aks-terraform
 - script: terraform init
   displayName: init
 
