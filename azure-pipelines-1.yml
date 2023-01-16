@@ -13,24 +13,14 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- task: TerraformCLI@0
-  inputs:
-    command: 'version'
-    allowTelemetryCollection: true
-- task: TerraformCLI@0
-  inputs:
-    command: 'init'
-    backendType: 'azurerm'
-    backendServiceArm: 'azurearm'
-    backendAzureRmSubscriptionId: '0600d38a-5064-48c7-a6aa-99a7ebc788f9'
-    ensureBackend: true
-    allowTelemetryCollection: true
-    backendAzureRmResourceGroupLocation: EastUS
-- task: TerraformCLI@0
-  inputs:
-    command: 'apply'
-    environmentServiceName: 'azurearm'
-    providerAzureRmSubscriptionId: '0600d38a-5064-48c7-a6aa-99a7ebc788f9'
-    runAzLogin: true
-    allowTelemetryCollection: true
-    backendAzureRmResourceGroupLocation: EastUS
+
+- script: terraform init
+  displayName: init
+
+ 
+- script: terraform plan
+  displayName: plan
+ 
+
+- script: terraform apply
+  displayName: apply
