@@ -26,9 +26,13 @@ steps:
   displayName: init
 
  
-- script: terraform plan
+- script: |
+    cd aks-terraform
+    terraform plan
   displayName: plan
  
 
-- script: terraform apply
+- script: |
+    cd aks-terraform
+    terraform apply
   displayName: apply
