@@ -17,6 +17,7 @@ steps:
   displayName: 'Run a one-line script'
 
 - script: cd aks-terraform
+- script: ls
 - script: terraform init
   displayName: init
 
