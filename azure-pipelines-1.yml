@@ -34,5 +34,5 @@ steps:
 
 - script: |
     cd aks-terraform
-    terraform apply
+    terraform apply -auto-approve
   displayName: apply
