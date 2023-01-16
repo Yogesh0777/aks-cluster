@@ -29,13 +29,6 @@ steps:
 
 - task: TerraformCLI@0
   inputs:
-    command: 'plan'
-    environmentServiceName: 'azurearm'
-    providerAzureRmSubscriptionId: '0600d38a-5064-48c7-a6aa-99a7ebc788f9'
-    runAzLogin: true
-    allowTelemetryCollection: true
-- task: TerraformCLI@0
-  inputs:
     command: 'apply'
     environmentServiceName: 'azurearm'
     providerAzureRmSubscriptionId: '0600d38a-5064-48c7-a6aa-99a7ebc788f9'
