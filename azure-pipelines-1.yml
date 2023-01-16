@@ -12,7 +12,7 @@ pool: Default
 steps:
 - checkout: self
 
-- script: echo Hello, world!
+- script:  ls
   displayName: 'Run a one-line script'
 
 
