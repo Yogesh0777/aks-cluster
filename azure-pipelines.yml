@@ -3,35 +3,29 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- main
+
+trigger: none
 
 pool: Default
   #vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
 - task: TerraformCLI@0
-  inputs:
-    command: 'version'
-    allowTelemetryCollection: true
-- task: TerraformCLI@0
+  displayName: Terraform Init
   inputs:
     command: 'init'
-    
     allowTelemetryCollection: true
 
 - task: TerraformCLI@0
+  displayName: Terraform Plan
+  inputs:
+    command: 'plan'
+    environmentServiceName: ''
+    allowTelemetryCollection: false
+
+- task: TerraformCLI@0
+  displayName: Terraform Apply
   inputs:
     command: 'apply'
-    environmentServiceName: 'azurearm'
-    providerAzureRmSubscriptionId: '0600d38a-5064-48c7-a6aa-99a7ebc788f9'
-    runAzLogin: true
+    environmentServiceName: 'youtube-app-service-connection'
     allowTelemetryCollection: true
-    providerGoogleRegion: 'EastUS'
