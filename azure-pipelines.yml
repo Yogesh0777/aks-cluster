@@ -25,17 +25,14 @@ steps:
   inputs:
     command: 'init'
     backendType: 'azurerm'
-    backendServiceArm: 'azurearm'
-    backendAzureRmSubscriptionId: '0600d38a-5064-48c7-a6aa-99a7ebc788f9'
-    ensureBackend: true
-    backendAzureRmResourceGroupName: 'yog'
-    backendAzureRmStorageAccountName: 'yogstorage'
-    backendAzureRmKey: 'yogkeystore'
+    allowTelemetryCollection: true
+- task: TerraformCLI@0
+  inputs:
+    command: 'plan'
+    runAzLogin: true
     allowTelemetryCollection: true
 - task: TerraformCLI@0
   inputs:
     command: 'apply'
-    environmentServiceName: 'Azure subscription 1(0600d38a-5064-48c7-a6aa-99a7ebc788f9)'
-    providerAzureRmSubscriptionId: '0600d38a-5064-48c7-a6aa-99a7ebc788f9'
     runAzLogin: true
     allowTelemetryCollection: true
