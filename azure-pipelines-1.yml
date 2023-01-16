@@ -20,7 +20,9 @@ steps:
     cd aks-terraform 
     ls
 - script: ls
-- script: terraform init
+- script: |
+    cd aks-terraform
+    terraform init
   displayName: init
 
  
