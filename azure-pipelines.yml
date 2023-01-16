@@ -9,23 +9,22 @@ trigger: none
 pool: Default
   #vmImage: ubuntu-latest
 
-steps:
 - task: TerraformCLI@0
-  displayName: Terraform Init
+  inputs:
+    command: 'version'
+    allowTelemetryCollection: true
+- task: TerraformCLI@0
   inputs:
     command: 'init'
+    backendType: 'azurerm'
+    backendServiceArm: 'azurearm'
+    backendAzureRmSubscriptionId: '0600d38a-5064-48c7-a6aa-99a7ebc788f9'
+    ensureBackend: true
     allowTelemetryCollection: true
-
 - task: TerraformCLI@0
-  displayName: Terraform Plan
-  inputs:
-    command: 'plan'
-    environmentServiceName: 'azurearm'
-    allowTelemetryCollection: false
-
-- task: TerraformCLI@0
-  displayName: Terraform Apply
   inputs:
     command: 'apply'
     environmentServiceName: 'azurearm'
+    providerAzureRmSubscriptionId: '0600d38a-5064-48c7-a6aa-99a7ebc788f9'
+    runAzLogin: true
     allowTelemetryCollection: true
