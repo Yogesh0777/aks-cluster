@@ -37,7 +37,6 @@ steps:
     terraform apply -auto-approve
   displayName: apply
 
-- script: kubectl get nodes
 
 - script: |
     cd aks-terraform
