@@ -38,7 +38,7 @@ steps:
   displayName: apply
 
 
-- script: |
-    cd aks-terraform
-    terraform destroy -auto-approve
-  displayName: destroy
+#- script: |
+ #   cd aks-terraform
+  #  terraform destroy -auto-approve
+  #displayName: destroy
